@@ -1,26 +1,321 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+
+  /* Brand palette — specialist medical */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-blue-soft: var(--blue-soft);
+  --color-blue-light: var(--blue-light);
+  --color-warm-white: var(--warm-white);
+  --color-slate: var(--slate);
+  --color-ink: var(--ink);
+  --color-rule: var(--rule);
+  --color-success: var(--success);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Restrained radii — clinical, not SaaS */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 5px;
+  --radius-2xl: 6px;
+  --radius-3xl: 8px;
+  --radius-4xl: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Specialist medical palette */
+  --navy: #102a43;
+  --navy-deep: #0a1e31;
+  --teal: #0f6b68;
+  --teal-deep: #0b4f4d;
+  --blue-soft: #dceaf2;
+  --blue-light: #f3f8fa;
+  --warm-white: #faf9f5;
+  --slate: #52606d;
+  --ink: #16222c;
+  --rule: #dce4e8;
+  /* Reserved strictly for confirmation / positive states */
+  --success: #2f6f52;
+
+  /* shadcn contract mapped onto the brand */
+  --background: var(--warm-white);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--blue-light);
+  --secondary-foreground: var(--navy);
+  --muted: var(--blue-light);
+  --muted-foreground: var(--slate);
+  --accent: var(--teal);
+  --accent-foreground: #ffffff;
+  --destructive: #9b3b33;
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--teal);
+
+  --chart-1: var(--teal);
+  --chart-2: var(--navy);
+  --chart-3: var(--slate);
+  --chart-4: var(--blue-soft);
+  --chart-5: var(--teal-deep);
+
+  --radius: 0.25rem;
+
+  --sidebar: var(--warm-white);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--navy);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--blue-light);
+  --sidebar-accent-foreground: var(--navy);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--teal);
+}
+
+.dark {
+  --navy: #0a1826;
+  --navy-deep: #060f19;
+  --teal: #4fa39d;
+  --teal-deep: #0b3a38;
+  --blue-soft: #1b3140;
+  --blue-light: #101f2b;
+  --warm-white: #0c1720;
+  --slate: #9aa8b4;
+  --ink: #e8eef2;
+  --rule: rgba(232, 238, 242, 0.14);
+  --success: #6fae8c;
+
+  --background: #0c1720;
+  --foreground: #e8eef2;
+  --card: #101f2b;
+  --card-foreground: #e8eef2;
+  --popover: #101f2b;
+  --popover-foreground: #e8eef2;
+  --primary: #e8eef2;
+  --primary-foreground: #0c1720;
+  --secondary: #101f2b;
+  --secondary-foreground: #e8eef2;
+  --muted: #101f2b;
+  --muted-foreground: #9aa8b4;
+  --accent: #4fa39d;
+  --accent-foreground: #0c1720;
+  --destructive: #d08a83;
+  --border: rgba(232, 238, 242, 0.14);
+  --input: rgba(232, 238, 242, 0.18);
+  --ring: #4fa39d;
+
+  --sidebar: #101f2b;
+  --sidebar-foreground: #e8eef2;
+  --sidebar-primary: #e8eef2;
+  --sidebar-primary-foreground: #0c1720;
+  --sidebar-accent: #101f2b;
+  --sidebar-accent-foreground: #e8eef2;
+  --sidebar-border: rgba(232, 238, 242, 0.14);
+  --sidebar-ring: #4fa39d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Guard against any single element forcing a sideways scroll */
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    text-wrap: balance;
+    letter-spacing: -0.012em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--teal);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Editorial uppercase label — eyebrows and section markers */
+  .label-eyebrow {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Restrained editorial type scale */
+  .type-hero {
+    font-size: clamp(2.25rem, 1.35rem + 3.6vw, 4.125rem); /* 36 → 66px */
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+  .type-h2 {
+    font-size: clamp(1.625rem, 1.25rem + 1.5vw, 2.375rem); /* 26 → 38px */
+    line-height: 1.15;
+  }
+  .type-h3 {
+    font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+    line-height: 1.25;
+  }
+  .type-body {
+    font-size: clamp(1rem, 0.97rem + 0.14vw, 1.0625rem);
+    line-height: 1.65;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Gut / Liver / Pancreas anatomical animation
+   Opacity-only transitions (compositor friendly, no layout work).
+   One full cycle = 9s, three organs staggered 3s apart.
+   --------------------------------------------------------------- */
+@keyframes organ-illuminate {
+  0%,
+  4% {
+    opacity: 0;
+  }
+  11%,
+  29% {
+    opacity: 1;
+  }
+  36%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes organ-label {
+  0%,
+  4% {
+    opacity: 0.45;
+  }
+  11%,
+  29% {
+    opacity: 1;
+  }
+  36%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes trace-in {
+  from {
+    stroke-dashoffset: var(--trace-len, 900);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.organ-highlight {
+  opacity: 0;
+  animation: organ-illuminate 9s ease-in-out infinite;
+}
+.organ-label {
+  opacity: 0.45;
+  animation: organ-label 9s ease-in-out infinite;
+}
+.organ-delay-0 {
+  animation-delay: 0s;
+}
+.organ-delay-1 {
+  animation-delay: 3s;
+}
+.organ-delay-2 {
+  animation-delay: 6s;
+}
+
+.organ-trace {
+  stroke-dasharray: var(--trace-len, 900);
+  stroke-dashoffset: var(--trace-len, 900);
+  animation: trace-in 2.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* Reduced motion: show the completed composition, no cycling. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .organ-highlight {
+    opacity: 0.72;
+    animation: none !important;
+  }
+  .organ-label {
+    opacity: 1;
+    animation: none !important;
+  }
+  .organ-trace {
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
 }
