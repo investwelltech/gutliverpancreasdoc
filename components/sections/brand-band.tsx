@@ -8,8 +8,9 @@ import { motion, logo } from "@/lib/config/brand-assets";
  *
  * It sits at the top rather than in the sticky header (which is on screen the
  * whole visit) and rather than at the foot of the page, where it was before.
- * Kept deliberately small on mobile (260px wide, so ~146px tall at 16:9) so it
- * never pushes the hero headline below the fold.
+ * Kept deliberately small at every width so it never pushes the hero copy down
+ * the page: the brief asks that the doctor's name and speciality be legible
+ * within the first screen, and the header already carries the wordmark.
  *
  * Under reduced motion the static stacked lockup is shown and the ~1.7 MB
  * video is never fetched.
@@ -20,12 +21,12 @@ export function BrandBand() {
       aria-label="Practice brand"
       className="border-b border-rule bg-warm-white"
     >
-      <div className="mx-auto flex max-w-[1240px] flex-col items-center px-5 py-5 sm:px-8 sm:py-10">
+      <div className="mx-auto flex max-w-[1240px] flex-col items-center px-5 py-4 sm:px-8 sm:py-6">
         <VideoLoop
           src={motion.logo.src}
           poster={motion.logo.poster}
           label={motion.logo.label}
-          className="aspect-video w-full max-w-[260px] overflow-hidden sm:max-w-[440px] lg:max-w-[520px]"
+          className="aspect-video w-full max-w-[220px] overflow-hidden sm:max-w-[300px] lg:max-w-[340px]"
           videoClassName="object-contain"
           fallback={
             <Image
@@ -34,8 +35,8 @@ export function BrandBand() {
               width={logo.stacked.width}
               height={logo.stacked.height}
               priority
-              sizes="(max-width: 640px) 220px, 320px"
-              className="mx-auto h-auto w-full max-w-[220px] sm:max-w-[320px]"
+              sizes="(max-width: 640px) 180px, 260px"
+              className="mx-auto h-auto w-full max-w-[180px] sm:max-w-[260px]"
             />
           }
         />

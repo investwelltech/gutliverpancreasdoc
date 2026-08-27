@@ -15,7 +15,7 @@ type BrandMarkProps = {
 
 const SIZES = {
   sm: { img: "h-5", name: "text-[0.6875rem]", plate: "w-32" },
-  md: { img: "h-7", name: "text-[0.6875rem]", plate: "w-40" },
+  md: { img: "h-6 sm:h-7", name: "text-[0.6875rem]", plate: "w-40" },
   lg: { img: "h-10", name: "text-xs", plate: "w-48" },
 };
 
@@ -44,7 +44,7 @@ export function BrandMark({
           width={logo.horizontal.width}
           height={logo.horizontal.height}
           priority
-          className={cn("w-auto", s.img)}
+          className={cn("w-auto shrink-0", s.img)}
         />
       ) : (
         /* Navy ground: the supplied lockup is dark artwork on a warm-white

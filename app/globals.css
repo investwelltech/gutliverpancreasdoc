@@ -209,10 +209,24 @@
   }
 
   /* Restrained editorial type scale */
+  /*
+   * Hero sizes are tuned to the brief's ranges and checked at the breakpoints
+   * it lists: heading 32px at 360 rising to 64px at 1440, doctor name 21 -> 30,
+   * supporting copy 16 -> 20.
+   */
   .type-hero {
-    font-size: clamp(1.875rem, 1.1rem + 3.9vw, 4.125rem); /* 30 → 66px */
-    line-height: 1.06;
+    font-size: clamp(2rem, 1.2rem + 3.4vw, 4rem); /* 32 -> 64px */
+    line-height: 1.08;
     letter-spacing: -0.02em;
+  }
+  .type-name {
+    font-size: clamp(1.3125rem, 1.1rem + 0.9vw, 1.875rem); /* 21 -> 30px */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .type-lead {
+    font-size: clamp(1rem, 0.92rem + 0.35vw, 1.25rem); /* 16 -> 20px */
+    line-height: 1.6;
   }
   .type-h2 {
     font-size: clamp(1.5rem, 1.16rem + 1.7vw, 2.375rem); /* 24 → 38px */
