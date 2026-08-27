@@ -28,7 +28,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] bg-blue-light lg:block"
       />
 
-      <div className="relative mx-auto grid max-w-[1240px] gap-8 px-5 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14 lg:pb-20 lg:pt-16">
+      <div className="relative mx-auto grid max-w-[1240px] gap-8 px-5 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-14 lg:pb-20 lg:pt-16">
         {/* ---------------- Portrait + medical visual ---------------- */}
         <div className="order-1 lg:order-2">
           <div className="mx-auto max-w-[300px] sm:max-w-[380px] lg:max-w-none">

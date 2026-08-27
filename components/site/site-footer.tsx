@@ -5,8 +5,10 @@ import { logo } from "@/lib/config/brand-assets";
 import { siteConfig } from "@/lib/config/site";
 
 /**
- * Deliberately minimal: identity, the three profiles, and the emergency line.
- * No navigation mirror, no consultancy messaging - both are on the page above.
+ * Deliberately minimal: identity, the three profiles and the copyright line.
+ * No navigation mirror and no consultancy messaging - both sit on the page
+ * above. The medical disclaimer was removed at the client's request, so the
+ * site now carries no disclaimer anywhere.
  */
 export function SiteFooter() {
   const { doctor, brand } = siteConfig;
@@ -35,12 +37,7 @@ export function SiteFooter() {
 
         <SocialLabelledLinks className="-ml-3 mt-5" tone="light" withWhatsApp />
 
-        <p className="mt-10 max-w-2xl border-t border-white/10 pt-6 text-[0.8125rem] leading-relaxed text-white/50">
-          This website is a professional profile and does not provide medical
-          advice. In an emergency, contact your local emergency services.
-        </p>
-
-        <p className="mt-5 text-xs text-white/40">
+        <p className="mt-10 border-t border-white/10 pt-6 text-xs text-white/40">
           © {new Date().getFullYear()} {doctor.name}
         </p>
       </div>
