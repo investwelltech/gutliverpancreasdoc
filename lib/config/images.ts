@@ -14,7 +14,7 @@ export const doctorImages = {
     width: 1045,
     height: 1400,
     alt: "Dr. Pratik Agrawal in a cream suit with a gutliverpancreasdoc lapel pin.",
-    source: "pratik4.jpeg — resized and optimised, no other alteration.",
+    source: "pratik4.jpeg - resized and optimised, no other alteration.",
   },
   /** "Meet your specialist": the navy suit, photographed in the consulting room. */
   portrait: {
@@ -22,7 +22,7 @@ export const doctorImages = {
     width: 1120,
     height: 1500,
     alt: "Dr. Pratik Agrawal in a navy suit in the consulting room.",
-    source: "pratik1.jpeg — resized and optimised, no other alteration.",
+    source: "pratik1.jpeg - resized and optimised, no other alteration.",
   },
   conference: {
     src: "/images/doctor/dr-pratik-conference.jpg",
@@ -30,20 +30,20 @@ export const doctorImages = {
     height: 1304,
     alt: "Dr. Pratik Agarwal presenting a case report poster at the LTSICON 2025 liver transplantation conference.",
     source:
-      "IMG_9324.PNG — cropped to remove the Instagram location sticker and handle overlay, then optimised. Face and framing of the subject unaltered.",
+      "IMG_9324.PNG - cropped to remove the Instagram location sticker and handle overlay, then optimised. Face and framing of the subject unaltered.",
   },
   endoscopySuite: {
     src: "/images/doctor/endoscopy-suite.jpg",
     width: 1600,
     height: 1200,
     alt: "An unoccupied endoscopy procedure room with monitors and anaesthetic equipment.",
-    source: "IMG_9660.HEIC — converted from HEIC and optimised.",
+    source: "IMG_9660.HEIC - converted from HEIC and optimised.",
   },
   procedureRoom: {
     src: "/images/doctor/procedure-room.jpg",
     width: 1600,
     height: 1200,
     alt: "An unoccupied interventional procedure suite with a fluoroscopy table and endoscopy tower.",
-    source: "IMG_9661.HEIC — converted from HEIC and optimised.",
+    source: "IMG_9661.HEIC - converted from HEIC and optimised.",
   },
 } as const;

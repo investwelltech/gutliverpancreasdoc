@@ -1,8 +1,13 @@
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { whatsappHref, emailHref } from "@/lib/config/site";
+
+/*
+ * Only the plain link button remains. The WhatsApp, email and enquiry actions
+ * were removed with the contact route — no contact call-to-action appears
+ * anywhere on the site. The href helpers stay in lib/config/site.ts, so
+ * restoring a channel means re-adding a button here, not re-finding the value.
+ */
 
 const ctaVariants = cva(
   // min-h keeps every control at a comfortable touch target on mobile.
@@ -66,63 +71,6 @@ export function Cta({
     <Link href={href} className={classes} {...rest}>
       {children}
     </Link>
-  );
-}
-
-/**
- * There is no booking engine on this site — see `services` in lib/config/site.
- * Wherever a "Book" action used to sit, patients are pointed at the enquiry
- * route instead. Keep it that way until consulting genuinely opens.
- */
-export function EnquireCta({
-  children = "Make an Enquiry",
-  ...props
-}: Omit<CtaProps, "href" | "children"> & { children?: React.ReactNode }) {
-  return (
-    <Cta href="/contact" {...props}>
-      {children}
-    </Cta>
-  );
-}
-
-/**
- * WhatsApp action. The number itself is never rendered — only the label.
- * The wa.me target and its neutral pre-filled message come from siteConfig.
- */
-export function WhatsAppCta({
-  children = "Ask on WhatsApp",
-  withIcon = false,
-  ...props
-}: Omit<CtaProps, "href" | "children"> & {
-  children?: React.ReactNode;
-  withIcon?: boolean;
-}) {
-  return (
-    <Cta href={whatsappHref()} external {...props}>
-      {withIcon && (
-        <MessageCircle size={16} strokeWidth={1.8} aria-hidden="true" />
-      )}
-      {children}
-    </Cta>
-  );
-}
-
-/**
- * Email action. Renders a label, never the address — and renders nothing at all
- * while no clinic address is configured, so the site cannot offer a mailto: to
- * an unconfirmed inbox. Set `contact.email` in lib/config/site.ts and every
- * email button reappears on its own.
- */
-export function EmailCta({
-  children = "Email Clinic",
-  ...props
-}: Omit<CtaProps, "href" | "children"> & { children?: React.ReactNode }) {
-  const href = emailHref();
-  if (!href) return null;
-  return (
-    <Cta href={href} {...props}>
-      {children}
-    </Cta>
   );
 }
 

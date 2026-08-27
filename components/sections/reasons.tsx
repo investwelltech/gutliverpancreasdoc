@@ -11,7 +11,7 @@ export function Reasons() {
         lead="Most people seek a specialist opinion for a reason that has less to do with a diagnosis and more to do with an unanswered question."
       />
 
-      {/* On a phone the titles alone carry this section — the descriptions are
+      {/* On a phone the titles alone carry this section - the descriptions are
           elaboration, so they appear from `sm` up. */}
       <ul className="mt-8 grid gap-x-12 gap-y-5 sm:mt-14 sm:gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
         {reasonsToConsult.map((r) => (

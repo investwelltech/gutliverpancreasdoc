@@ -4,8 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
-import { WhatsAppFloat } from "@/components/site/whatsapp-float";
-import { MobileActionBar } from "@/components/site/mobile-action-bar";
 import { brand, doctor } from "@/lib/config/site";
 
 const inter = Inter({
@@ -80,8 +78,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <WhatsAppFloat />
-        <MobileActionBar />
       </body>
     </html>
   );

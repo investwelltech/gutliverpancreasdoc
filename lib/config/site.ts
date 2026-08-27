@@ -38,11 +38,11 @@ export const siteConfig = {
     credentialLine: "MBBS, MD (Medicine)",
     registration: "[Medical registration number to be confirmed]",
     qualifications: [
-      "MBBS — Maharashtra University of Health Sciences (MUHS), Nashik",
-      "MD (Medicine) — Madhya Pradesh Medical Science University (MPMSU)",
-      "DrNB (Gastroenterology) — in training",
+      "MBBS - Maharashtra University of Health Sciences (MUHS), Nashik",
+      "MD (Medicine) - Madhya Pradesh Medical Science University (MPMSU)",
+      "DrNB (Gastroenterology) - in training",
     ],
-    affiliations: ["Max Super Speciality Hospital, Saket — Max Healthcare"],
+    affiliations: ["Max Super Speciality Hospital, Saket - Max Healthcare"],
     memberships: ["[Professional memberships to be confirmed]"],
     yearsInPractice: "In clinical practice since 2020",
     location: "Saket, New Delhi, India",
@@ -108,11 +108,12 @@ export const siteConfig = {
     available: false,
     /** Short label used on badges and buttons. */
     statusLabel: "Coming soon",
-    /** One line shown wherever a booking CTA used to sit. */
+    /**
+     * The single line shown wherever a booking CTA used to sit. The longer
+     * explanatory note was removed at the client's request — the status is
+     * stated once, plainly, and nothing elaborates on it.
+     */
     statusLine: "Consulting services coming soon.",
-    /** Longer explanation for section-level notices. */
-    statusNote:
-      "Online consultations are not open for booking yet. Enquiries are welcome in the meantime — send a message and you will be told as soon as appointments open.",
   },
 
   consultation: {

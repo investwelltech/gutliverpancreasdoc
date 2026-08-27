@@ -42,14 +42,14 @@ export function SpecialistFocus() {
             />
           </div>
 
-          {/* Editorial entries — not cards */}
+          {/* Editorial entries - not cards */}
           <div>
             <h2 className="type-h2 max-w-xl text-navy">
               Three connected systems, assessed together
             </h2>
             <p className="mt-4 hidden max-w-xl text-[0.9375rem] leading-relaxed text-slate sm:block">
               Gut, liver and pancreatic conditions frequently overlap. Reviewing
-              them as one system — rather than in isolation — is what a focused
+              them as one system - rather than in isolation - is what a focused
               specialist opinion offers.
             </p>
 

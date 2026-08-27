@@ -26,7 +26,7 @@ export function Academic() {
         </h2>
         <p className="type-body mt-5 hidden max-w-2xl text-slate sm:block">
           Gastroenterology training follows several years of internal medicine
-          practice — which is what makes it possible to read a digestive or
+          practice - which is what makes it possible to read a digestive or
           liver problem in the context of the whole patient.
         </p>
 
@@ -99,7 +99,7 @@ export function Academic() {
                 className="h-auto w-full object-cover"
               />
               <figcaption className="mt-3 hidden text-xs leading-relaxed text-slate sm:block">
-                Case report presentation, LTSICON 2025 — 8th Annual Conference
+                Case report presentation, LTSICON 2025 - 8th Annual Conference
                 of the Liver Transplantation Society of India, New Delhi.
               </figcaption>
             </figure>

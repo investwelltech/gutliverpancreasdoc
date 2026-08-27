@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { BrandMark } from "./brand-mark";
-import { WhatsAppCta } from "./cta";
 import { primaryNav } from "@/lib/content/navigation";
 import { ComingSoonNotice } from "./coming-soon";
 import {
@@ -142,10 +141,6 @@ export function SiteHeader() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <SocialIconLinks />
-            <span aria-hidden="true" className="h-5 w-px bg-rule" />
-            <WhatsAppCta variant="primary" size="sm" withIcon>
-              Enquire
-            </WhatsAppCta>
           </div>
 
           <div className="flex items-center gap-0.5 lg:hidden">
@@ -181,6 +176,7 @@ export function SiteHeader() {
                       <Link
                         key={child.href}
                         href={child.href}
+                        onClick={() => setOpen(false)}
                         aria-current={isActive(child.href) ? "page" : undefined}
                         className={cn(
                           "font-[family-name:var(--font-display)] text-lg",
@@ -196,6 +192,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
                     "border-b border-rule py-4 font-[family-name:var(--font-display)] text-xl",
@@ -208,11 +205,8 @@ export function SiteHeader() {
             )}
           </nav>
 
-          <div className="mt-6 flex flex-col gap-3">
-            <WhatsAppCta variant="primary" size="md" block withIcon>
-              Enquire on WhatsApp
-            </WhatsAppCta>
-            <ComingSoonNotice detail={false} />
+          <div className="mt-6">
+            <ComingSoonNotice />
           </div>
 
           <div className="mt-8 border-t border-rule pt-5">

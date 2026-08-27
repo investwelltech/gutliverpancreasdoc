@@ -76,7 +76,7 @@ export function OrganSystem({
         </radialGradient>
       </defs>
 
-      {/* Enclosing field + connectors — the quiet structural layer. */}
+      {/* Enclosing field + connectors - the quiet structural layer. */}
       <g stroke="#102A43" strokeLinecap="round" fill="none">
         <circle cx="210" cy="186" r="152" strokeOpacity="0.14" strokeWidth="1" />
         <circle cx="210" cy="186" r="112" strokeOpacity="0.08" strokeWidth="1" />
@@ -114,7 +114,7 @@ export function OrganSystem({
         </g>
       ))}
 
-      {/* Illuminated state — one node at a time. */}
+      {/* Illuminated state - one node at a time. */}
       {NODES.map((n) => (
         <g key={`hl-${n.id}`} className={cn("organ-highlight", n.delay)}>
           <circle cx={n.cx} cy={n.cy} r="54" fill="url(#nodeWash)" />

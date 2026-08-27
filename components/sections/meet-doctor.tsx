@@ -1,13 +1,9 @@
 import Image from "next/image";
-import { Cta } from "@/components/site/cta";
 import { Placeholder } from "@/components/site/placeholder";
-import { cn } from "@/lib/utils";
 import { doctorImages } from "@/lib/config/images";
 import { siteConfig } from "@/lib/config/site";
 import {
-  profileIntro,
   profileFields,
-  philosophyOfCare,
   specialistAreas,
 } from "@/lib/content/doctor-profile";
 
@@ -41,7 +37,7 @@ export function MeetDoctor() {
               {doctor.name}
             </h2>
 
-            {/* Specialist areas — typography, not badges */}
+            {/* Specialist areas - typography, not badges */}
             {/* Separators sit after each item so a wrapped line never starts
                 with a dangling slash. */}
             <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5">
@@ -57,33 +53,9 @@ export function MeetDoctor() {
               ))}
             </ul>
 
-            {/* The opening paragraph carries the point; the rest is
-                elaboration and is held back on phones. */}
-            <div className="mt-5 space-y-5 sm:mt-7">
-              {profileIntro.map((p, i) => (
-                <p
-                  key={p.slice(0, 24)}
-                  className={cn(
-                    "type-body max-w-2xl text-slate",
-                    i > 0 && "hidden sm:block"
-                  )}
-                >
-                  {p}
-                </p>
-              ))}
-            </div>
-
-            <blockquote className="mt-6 border-l-2 border-teal pl-5 sm:mt-8 sm:pl-6">
-              <p className="font-[family-name:var(--font-display)] text-base italic leading-relaxed text-navy sm:text-lg">
-                {philosophyOfCare}
-              </p>
-              <footer className="label-eyebrow mt-3 text-slate">
-                Philosophy of care
-              </footer>
-            </blockquote>
-
-            {/* Editable profile fields */}
-            <dl className="mt-8 border-t border-rule sm:mt-10">
+            {/* The profile is the sourced fields - the introduction and the
+                philosophy quotation were removed with the consulting copy. */}
+            <dl className="mt-6 border-t border-rule sm:mt-8">
               {profileFields.map((f) => (
                 <div
                   key={f.label}
@@ -97,11 +69,6 @@ export function MeetDoctor() {
               ))}
             </dl>
 
-            <div className="mt-7 sm:mt-9">
-              <Cta href="/about" variant="outline" size="md">
-                Read full profile
-              </Cta>
-            </div>
           </div>
         </div>
       </div>

@@ -19,13 +19,14 @@ export const specialistAreas = [
   "Endoscopy",
 ];
 
-export const profileIntro = [
-  "Patients usually arrive with a folder of results and a question nobody has fully answered: what does this actually mean, and what should happen next.",
-  "This practice is built around that question. It focuses on the gut, the liver and the pancreas — three closely connected systems where symptoms overlap, results are easy to misread, and a considered specialist opinion makes a genuine difference.",
-];
-
-export const philosophyOfCare =
-  "Clear explanation first. Investigations where they change the plan, not by default. And a written summary you can take back to your own doctor, so the care you already receive stays joined up.";
+/*
+ * The narrative introduction and the "philosophy of care" quotation were
+ * removed at the client's request: both were written for a consulting
+ * practice ("patients usually arrive with a folder of results...", "a written
+ * summary you can take back to your own doctor"), and consulting is not open.
+ * Nothing was written to replace them — the profile now stands on the sourced
+ * fields below, and no biographical prose may be invented to fill the gap.
+ */
 
 /**
  * Editable profile fields shown in "Meet your specialist".
@@ -69,10 +70,10 @@ export const profileFields = [
 /** Career timeline, most recent first. */
 export const experience = [
   {
-    role: "Senior Resident — Gastroenterology",
+    role: "Senior Resident - Gastroenterology",
     org: "Max Healthcare, Saket",
     location: "New Delhi",
-    period: "Jun 2025 — Present",
+    period: "Jun 2025 - Present",
     detail:
       "DrNB Gastroenterology training, with a focus on advanced endoscopy, hepatology and metabolic liver disease.",
   },
@@ -80,21 +81,21 @@ export const experience = [
     role: "Consultant Physician",
     org: "Kasturba Hospital",
     location: "Mumbai",
-    period: "Jun 2024 — Jun 2025",
+    period: "Jun 2024 - Jun 2025",
     detail: "General internal medicine.",
   },
   {
     role: "Resident Doctor",
     org: "Netaji Subhash Chandra Bose Medical College",
     location: "Jabalpur",
-    period: "Aug 2020 — Jul 2023",
+    period: "Aug 2020 - Jul 2023",
     detail: "Internal medicine residency.",
   },
   {
     role: "Internship",
     org: "Indira Gandhi Government Medical College",
     location: "Nagpur",
-    period: "Feb 2019 — Mar 2020",
+    period: "Feb 2019 - Mar 2020",
     detail: "Rotating clinical internship.",
   },
 ];
@@ -104,19 +105,19 @@ export const education = [
   {
     award: "DrNB, Gastroenterology",
     org: "National Board of Examinations in Medical Sciences (NBEMS)",
-    period: "Jun 2025 — Present",
+    period: "Jun 2025 - Present",
     inProgress: true,
   },
   {
     award: "MD, Medicine",
     org: "Madhya Pradesh Medical Science University (MPMSU)",
-    period: "Aug 2020 — Jun 2023",
+    period: "Aug 2020 - Jun 2023",
     inProgress: false,
   },
   {
     award: "MBBS",
     org: "Maharashtra University of Health Sciences (MUHS), Nashik",
-    period: "Sep 2014 — Mar 2020",
+    period: "Sep 2014 - Mar 2020",
     inProgress: false,
   },
 ];
@@ -131,15 +132,15 @@ export const verifiedFromSuppliedMaterial = {
   note: "Further academic detail to be confirmed.",
 };
 
+/*
+ * The Publications, Research and Teaching rows were removed at the client's
+ * request — all three were unconfirmed placeholders. Only the corroborated
+ * conference entry remains; add a row back here when there is a fact for it.
+ */
 export const academicStrands = [
   {
     label: "Conferences",
     value:
       "Case report presented at LTSICON 2025, the 8th Annual Conference of the Liver Transplantation Society of India.",
   },
-  { label: "Publications", value: "[Publications to be confirmed]" },
-  { label: "Research", value: "[Research activity to be confirmed]" },
-  { label: "Teaching", value: "[Teaching activity to be confirmed]" },
 ];
-
-export const researchPlaceholder = "[Publications and research to be confirmed]";

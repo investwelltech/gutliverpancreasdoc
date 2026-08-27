@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { Cta, WhatsAppCta } from "@/components/site/cta";
 import { ComingSoonNotice } from "@/components/site/coming-soon";
 import { doctorImages } from "@/lib/config/images";
 import { brand } from "@/lib/config/site";
 
 /**
- * Closing panel. Nothing here books anything — the two routes offered are the
- * two that work today, with the "coming soon" status stated above them.
+ * Closing panel. It states the status and the emergency caveat and offers no
+ * action: the site carries no contact route while consulting is not open.
  */
 export function FinalCta() {
   const img = doctorImages.endoscopySuite;
@@ -29,23 +28,10 @@ export function FinalCta() {
             {brand.device.join(` ${brand.deviceSeparator} `)}
           </p>
           <h2 className="mt-4 text-[1.75rem] leading-[1.12] text-white sm:mt-5 sm:text-[2.5rem] lg:text-[3rem]">
-            Have a question about your gut, liver or pancreas?
+            Gut, liver and pancreatic medicine.
           </h2>
-          <p className="mt-4 hidden max-w-xl text-[1.0625rem] leading-relaxed text-white/70 sm:mt-6 sm:block">
-            Send a message and it will be answered directly. You will also be
-            told as soon as consultations open.
-          </p>
 
           <ComingSoonNotice tone="light" className="mt-6 sm:mt-8" />
-
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-            <WhatsAppCta variant="onNavy" size="lg" withIcon>
-              Enquire on WhatsApp
-            </WhatsAppCta>
-            <Cta href="/contact" variant="onNavyOutline" size="lg">
-              Contact
-            </Cta>
-          </div>
 
           <p className="mt-6 text-xs leading-relaxed text-white/45 sm:mt-8">
             Not for emergencies. If your symptoms are severe or worsening

@@ -17,7 +17,7 @@ export function Resources() {
             <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg leading-snug text-navy sm:mt-3 sm:text-xl">
               {r.title}
             </h3>
-            {/* Summaries are held back on phones — six of them stacked is what
+            {/* Summaries are held back on phones - six of them stacked is what
                 made this section read as a wall of text. */}
             <p className="mt-2.5 hidden text-sm leading-relaxed text-slate sm:block">
               {r.summary}

@@ -8,19 +8,30 @@
  */
 
 export const logo = {
+  /**
+   * Header lockup. The stacked artwork cannot be used at header height: it is
+   * a three-line lockup, so at the 68px bar its wordmark lands near 4px tall
+   * and is unreadable. This horizontal lockup stays until a horizontal version
+   * of the supplied artwork exists.
+   */
   horizontal: {
     src: "/images/brand/logo-horizontal.jpg",
     width: 900,
     height: 142,
     alt: "gutliverpancreasdoc",
-    source: "logo1.jpeg — cropped to the lockup and optimised.",
+    source: "logo1.jpeg - cropped to the lockup and optimised.",
   },
+  /**
+   * The supplied artwork itself. Next/Image resizes and re-encodes it per
+   * breakpoint, so the 2752px original is what ships in the repo while
+   * visitors receive an optimised derivative.
+   */
   stacked: {
-    src: "/images/brand/logo-stacked.jpg",
-    width: 760,
-    height: 406,
-    alt: "gutliverpancreasdoc — digestive, liver and pancreas care",
-    source: "logo.jpeg — cropped to the lockup and optimised.",
+    src: "/images/logo.jpeg",
+    width: 2752,
+    height: 1536,
+    alt: "gutliverpancreasdoc - digestive, liver and pancreas care",
+    source: "logo.jpeg - the supplied file, used unaltered.",
   },
 } as const;
 

@@ -34,6 +34,7 @@ export function BrandBand() {
               width={logo.stacked.width}
               height={logo.stacked.height}
               priority
+              sizes="(max-width: 640px) 220px, 320px"
               className="mx-auto h-auto w-full max-w-[220px] sm:max-w-[320px]"
             />
           }

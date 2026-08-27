@@ -1,11 +1,9 @@
-import { Cta, WhatsAppCta } from "./cta";
 import { ComingSoonNotice } from "./coming-soon";
 import { brand } from "@/lib/config/site";
 
 /**
- * Shared shell for the Phase 1 inner pages. These routes exist so navigation
- * resolves and the SEO structure is in place; their content is written in a
- * later phase.
+ * Shared shell for the inner portfolio pages. These routes exist so navigation
+ * resolves and the structure is in place; their content is written later.
  */
 export function PageShell({
   eyebrow,
@@ -16,7 +14,8 @@ export function PageShell({
 }: {
   eyebrow: string;
   title: string;
-  lead: string;
+  /** Optional — a page with nothing verified to say simply omits it. */
+  lead?: string;
   children?: React.ReactNode;
   phaseNote?: boolean;
 }) {
@@ -28,9 +27,11 @@ export function PageShell({
           <h1 className="mt-4 max-w-3xl text-[2rem] leading-[1.12] text-navy sm:text-[2.5rem] lg:text-[3rem]">
             {title}
           </h1>
-          <p className="mt-4 hidden max-w-2xl text-[1.0625rem] leading-relaxed text-slate sm:mt-5 sm:block">
-            {lead}
-          </p>
+          {lead && (
+            <p className="mt-4 hidden max-w-2xl text-[1.0625rem] leading-relaxed text-slate sm:mt-5 sm:block">
+              {lead}
+            </p>
+          )}
         </div>
       </header>
 
@@ -39,27 +40,17 @@ export function PageShell({
 
         {phaseNote && (
           <div className="mt-4 border border-dashed border-rule bg-blue-light/40 p-7">
-            <p className="label-eyebrow text-slate">Content in preparation</p>
+            <p className="label-eyebrow text-slate">More to follow</p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate">
-              This page is part of the approved structure and is reserved for
-              content that has not yet been written or confirmed. Nothing is
-              published here until it has been reviewed.
+              This section of the portfolio is still being written. It will be
+              filled in as material is prepared.
             </p>
           </div>
         )}
 
         <ComingSoonNotice className="mt-12" />
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-rule pt-8 sm:flex-row">
-          <WhatsAppCta variant="primary" size="lg" withIcon>
-            Enquire on WhatsApp
-          </WhatsAppCta>
-          <Cta href="/contact" variant="outline" size="lg">
-            Contact
-          </Cta>
-        </div>
-
-        <p className="mt-8 label-eyebrow text-slate">
+        <p className="mt-10 border-t border-rule pt-8 label-eyebrow text-slate">
           {brand.device.join(` ${brand.deviceSeparator} `)}
         </p>
       </div>

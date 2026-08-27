@@ -5,7 +5,9 @@ export type NavItem = NavLink & { children?: NavLink[] };
 /** Desktop header. "Conditions" groups the three organ-system pages. */
 export const primaryNav: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  /* Anchors the homepage's "Meet your specialist" section — there is no
+     separate About page. */
+  { label: "About", href: "/#about" },
   {
     label: "Conditions",
     href: "/conditions",
@@ -28,25 +30,22 @@ export const primaryNav: NavItem[] = [
     ],
   },
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
 ];
 
 /** Flat list used by the footer. */
 export const footerNav: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
   { label: "Gut", href: "/gut" },
   { label: "Liver", href: "/liver" },
   { label: "Pancreas", href: "/pancreas" },
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
 ];
 
-export const legalNav: NavLink[] = [
-  { label: "Privacy Policy", href: "/legal/privacy" },
-  { label: "Cookie Policy", href: "/legal/cookies" },
-  { label: "Terms", href: "/legal/terms" },
-  { label: "Medical Disclaimer", href: "/legal/medical-disclaimer" },
-  { label: "Data Processing", href: "/legal/data-processing" },
-  { label: "Patient Consent", href: "/legal/patient-consent" },
-];
+/*
+ * There is no legal navigation. The policy placeholders (privacy, cookies,
+ * terms, data processing, patient consent) and their routes were removed at
+ * the client's request: none was in force, and a portfolio site that collects
+ * nothing has nothing for them to govern. Add them back only alongside real,
+ * reviewed policy documents.
+ */

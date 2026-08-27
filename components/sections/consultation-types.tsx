@@ -1,13 +1,13 @@
 import { Section, SectionHeading } from "@/components/site/section";
 import { ComingSoonNotice } from "@/components/site/coming-soon";
-import { WhatsAppCta } from "@/components/site/cta";
 import { consultationTypes } from "@/lib/content/consultations";
 import { pricing } from "@/lib/config/site";
 
 /**
- * The consultation types are described here as an outline of the practice —
- * NOT as something bookable. There is no booking flow on this site, so the
- * section closes with the "coming soon" notice and an enquiry route instead.
+ * The consultation types are described here as an outline of what is being
+ * prepared — NOT as something bookable. There is no booking flow and no
+ * contact route, so the section closes on the "coming soon" notice alone.
+ * Fees are not published and no fee note is shown.
  *
  * On mobile only the name and the "suitable for" line are shown; the longer
  * `detail` paragraph appears from `sm` up.
@@ -51,15 +51,7 @@ export function ConsultationTypes() {
         ))}
       </div>
 
-      <p className="mt-5 text-xs italic text-slate">{pricing.feeNote}</p>
-
-      <ComingSoonNotice className="mt-6 sm:mt-8" />
-
-      <div className="mt-6">
-        <WhatsAppCta variant="primary" size="lg" withIcon>
-          Register Your Interest
-        </WhatsAppCta>
-      </div>
+      <ComingSoonNotice className="mt-8 sm:mt-10" />
     </Section>
   );
 }

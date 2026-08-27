@@ -18,7 +18,7 @@ export default function Page() {
       lead="Pancreatic conditions can be complex and often benefit from a focused specialist opinion, particularly where imaging or enzyme results are unclear."
     >
       <h2 className="label-eyebrow text-slate">
-        Reasons patients seek this consultation
+        Conditions covered in this area
       </h2>
       <ul className="mt-5 grid gap-x-10 gap-y-1 sm:grid-cols-2">
         {area.concerns.map((c) => (

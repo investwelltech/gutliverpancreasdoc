@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Logo } from "./logo";
 import { logo } from "@/lib/config/brand-assets";
 import { siteConfig } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
@@ -15,9 +14,9 @@ type BrandMarkProps = {
 };
 
 const SIZES = {
-  sm: { img: "h-5", name: "text-[0.6875rem]", mark: "h-5", word: "text-sm" },
-  md: { img: "h-7", name: "text-[0.6875rem]", mark: "h-6", word: "text-base" },
-  lg: { img: "h-10", name: "text-xs", mark: "h-8", word: "text-xl" },
+  sm: { img: "h-5", name: "text-[0.6875rem]", plate: "w-32" },
+  md: { img: "h-7", name: "text-[0.6875rem]", plate: "w-40" },
+  lg: { img: "h-10", name: "text-xs", plate: "w-48" },
 };
 
 export function BrandMark({
@@ -28,7 +27,7 @@ export function BrandMark({
 }: BrandMarkProps) {
   const s = SIZES[size];
   const { brand, doctor } = siteConfig;
-  const label = `${brand.practiceName} — ${doctor.name}, home`;
+  const label = `${brand.practiceName} - ${doctor.name}, home`;
 
   return (
     <Link
@@ -48,19 +47,18 @@ export function BrandMark({
           className={cn("w-auto", s.img)}
         />
       ) : (
-        /* Navy ground: the artwork's wordmark is dark navy and would disappear,
-           so the mark is rebuilt from brand colours with the wordmark in type. */
-        <span className="inline-flex items-center gap-2.5">
-          <Logo tone="light" className={s.mark} />
-          <span
-            className={cn(
-              "font-medium lowercase tracking-tight text-white",
-              s.word
-            )}
-          >
-            gutliverpancreas
-            <span className="text-[#7AB1B4]">doc</span>
-          </span>
+        /* Navy ground: the supplied lockup is dark artwork on a warm-white
+           field, so it sits on a matching plate rather than being rebuilt —
+           the same file the rest of the site uses. */
+        <span className={cn("block bg-warm-white px-4 py-3", s.plate)}>
+          <Image
+            src={logo.stacked.src}
+            alt={brand.practiceName}
+            width={logo.stacked.width}
+            height={logo.stacked.height}
+            sizes="200px"
+            className="h-auto w-full"
+          />
         </span>
       )}
 

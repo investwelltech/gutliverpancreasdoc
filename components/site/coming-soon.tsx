@@ -33,17 +33,12 @@ export function ComingSoonBadge({
   );
 }
 
-/**
- * Section-level notice. `detail` is hidden below `sm` on purpose — the status
- * line alone is what a phone reader needs.
- */
+/** Section-level notice: the status line and nothing else. */
 export function ComingSoonNotice({
   tone = "dark",
-  detail = true,
   className,
 }: {
   tone?: "dark" | "light";
-  detail?: boolean;
   className?: string;
 }) {
   return (
@@ -64,16 +59,6 @@ export function ComingSoonNotice({
       >
         {services.statusLine}
       </p>
-      {detail && (
-        <p
-          className={cn(
-            "mt-2 hidden max-w-xl text-sm leading-relaxed sm:block",
-            tone === "dark" ? "text-slate" : "text-white/65"
-          )}
-        >
-          {services.statusNote}
-        </p>
-      )}
     </div>
   );
 }

@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { WhatsAppCta, Cta } from "@/components/site/cta";
 import { ComingSoonBadge } from "@/components/site/coming-soon";
 import { doctorImages } from "@/lib/config/images";
 import { siteConfig } from "@/lib/config/site";
 
 /**
- * Mobile-first ordering: portrait, then name and headline, then two actions.
- * The supporting paragraph and the credibility strip are held back until `sm`
- * — on a phone the portrait plus the headline is the whole message, and the
- * brand animation is already directly above.
+ * Mobile-first ordering: portrait, then name and headline, then the supporting
+ * line and the status. The supporting paragraph and the credibility strip are
+ * held back until `sm` — on a phone the portrait plus the headline is the whole
+ * message, and the brand animation is already directly above.
  *
- * There is no "Book" action: consulting is not open (see `services` in
- * lib/config/site.ts), which the badge states plainly.
+ * There are NO call-to-action buttons here. Consulting is not open and the
+ * site carries no contact route (see `services` in lib/config/site.ts); the
+ * badge states the status and nothing asks the reader to act.
  */
 export function Hero() {
   const img = doctorImages.hero;
@@ -53,7 +53,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-3 text-sm text-slate sm:mt-4 sm:text-base">
-            {doctor.name} — {doctor.shortTitle}
+            {doctor.name} - {doctor.shortTitle}
           </p>
 
           <p className="type-body mt-5 hidden max-w-xl text-slate sm:block">
@@ -61,18 +61,9 @@ export function Hero() {
             digestive, liver and pancreatic concerns.
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-            <WhatsAppCta variant="primary" size="lg" withIcon>
-              Enquire on WhatsApp
-            </WhatsAppCta>
-            <Cta href="/about" variant="outline" size="lg">
-              View Profile
-            </Cta>
-          </div>
-
           <ComingSoonBadge className="mt-5" />
 
-          {/* Understated credibility strip — typography, not badges. */}
+          {/* Understated credibility strip - typography, not badges. */}
           <dl className="mt-8 hidden max-w-lg grid-cols-3 gap-4 border-t border-rule pt-6 sm:mt-10 sm:grid">
             {[
               ["Gut", "Digestive"],

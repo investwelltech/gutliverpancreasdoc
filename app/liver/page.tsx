@@ -18,7 +18,7 @@ export default function Page() {
       lead="Liver problems are frequently identified through routine blood tests or scans before symptoms appear, which makes careful interpretation especially important."
     >
       <h2 className="label-eyebrow text-slate">
-        Reasons patients seek this consultation
+        Conditions covered in this area
       </h2>
       <ul className="mt-5 grid gap-x-10 gap-y-1 sm:grid-cols-2">
         {area.concerns.map((c) => (
