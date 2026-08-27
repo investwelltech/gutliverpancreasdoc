@@ -108,12 +108,14 @@ export const siteConfig = {
     available: false,
     /** Short label used on badges and buttons. */
     statusLabel: "Coming soon",
+    /** Heading for the standalone consultancy section. */
+    sectionTitle: "Private Consultancy",
     /**
      * The single line shown wherever a booking CTA used to sit. The longer
      * explanatory note was removed at the client's request — the status is
      * stated once, plainly, and nothing elaborates on it.
      */
-    statusLine: "Consulting services coming soon.",
+    statusLine: "Online and private consultancy services coming soon.",
   },
 
   consultation: {

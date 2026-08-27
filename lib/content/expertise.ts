@@ -10,6 +10,8 @@ export type ExpertiseArea = {
   numeral: string;
   /** One-line summary used beside the anatomical diagram. */
   focusLine: string;
+  /** The short line shown on the homepage expertise card - client's wording. */
+  cardLine: string;
   headline: string;
   description: string;
   concerns: string[];
@@ -23,6 +25,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     numeral: "I",
     focusLine:
       "Digestive disorders and gastrointestinal concerns, from reflux to altered bowel habit.",
+    cardLine: "Digestive and gastrointestinal health.",
     headline: "Digestive and bowel concerns",
     description:
       "Ongoing digestive symptoms are common, and they are often difficult to interpret without a specialist review of your history, examination and investigations together.",
@@ -42,6 +45,8 @@ export const expertiseAreas: ExpertiseArea[] = [
     numeral: "II",
     focusLine:
       "Assessment and specialist review of liver-related conditions and abnormal results.",
+    cardLine:
+      "Specialist assessment of liver conditions and abnormal results.",
     headline: "Liver health and abnormal results",
     description:
       "Liver problems are frequently picked up through routine blood tests or scans before any symptoms appear, which makes careful interpretation especially important.",
@@ -61,6 +66,7 @@ export const expertiseAreas: ExpertiseArea[] = [
     numeral: "III",
     focusLine:
       "Specialist evaluation of pancreatic concerns, including unclear imaging findings.",
+    cardLine: "Evaluation and management of pancreatic concerns.",
     headline: "Pancreatic conditions",
     description:
       "Pancreatic conditions can be complex and often benefit from a focused specialist opinion, particularly where imaging or enzyme results are unclear.",

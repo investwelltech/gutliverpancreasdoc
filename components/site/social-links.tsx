@@ -1,5 +1,6 @@
+import { MessageCircle } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "./social-icons";
-import { siteConfig } from "@/lib/config/site";
+import { siteConfig, whatsappHref } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
 
 /** Only configured (non-empty) profiles are rendered. */
@@ -37,7 +38,7 @@ export function SocialIconLinks({
             aria-label={`${label} (opens in a new tab)`}
             title={label}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal",
+              "inline-flex h-11 w-11 items-center justify-center rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal",
               tone === "dark"
                 ? "text-slate hover:bg-blue-light hover:text-teal"
                 : "text-white/70 hover:bg-white/10 hover:text-white"
@@ -51,9 +52,36 @@ export function SocialIconLinks({
   );
 }
 
-/** Labelled version for the mobile sheet, where space allows words. */
-export function SocialLabelledLinks({ className }: { className?: string }) {
-  const profiles = socialProfiles();
+/**
+ * Labelled version for the mobile sheet, the contact panel and the footer.
+ * Every row is at least 44px tall so it is comfortable to tap.
+ *
+ * `withWhatsApp` appends WhatsApp as a third profile. The number is never
+ * rendered - only the label - and the target comes from siteConfig.
+ */
+export function SocialLabelledLinks({
+  className,
+  tone = "dark",
+  withWhatsApp = false,
+}: {
+  className?: string;
+  tone?: "dark" | "light";
+  withWhatsApp?: boolean;
+}) {
+  const profiles = [
+    ...socialProfiles(),
+    ...(withWhatsApp
+      ? [
+          {
+            label: "WhatsApp",
+            href: whatsappHref(),
+            Icon: ({ size }: { size: number }) => (
+              <MessageCircle size={size} strokeWidth={1.8} />
+            ),
+          },
+        ]
+      : []),
+  ];
   if (!profiles.length) return null;
 
   return (
@@ -64,7 +92,12 @@ export function SocialLabelledLinks({ className }: { className?: string }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-2.5 rounded-sm px-3 text-sm font-medium text-navy transition-colors hover:bg-blue-light hover:text-teal"
+            className={cn(
+              "inline-flex min-h-11 items-center gap-2.5 rounded-sm px-3 text-[0.9375rem] font-medium transition-colors",
+              tone === "dark"
+                ? "text-navy hover:bg-blue-light hover:text-teal"
+                : "text-white/80 hover:bg-white/10 hover:text-white"
+            )}
           >
             <Icon size={17} />
             {label}

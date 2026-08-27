@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import { whatsappHref } from "@/lib/config/site";
 
 /*
  * Only the plain link button remains. The WhatsApp, email and enquiry actions
@@ -71,6 +73,19 @@ export function Cta({
     <Link href={href} className={classes} {...rest}>
       {children}
     </Link>
+  );
+}
+
+/** WhatsApp action. Renders a label, never the number. */
+export function WhatsAppCta({
+  children = "Message on WhatsApp",
+  ...props
+}: Omit<CtaProps, "href" | "children"> & { children?: React.ReactNode }) {
+  return (
+    <Cta href={whatsappHref()} external {...props}>
+      <MessageCircle size={17} strokeWidth={1.8} aria-hidden="true" />
+      {children}
+    </Cta>
   );
 }
 

@@ -1,73 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BrandMark } from "./brand-mark";
-import { footerNav } from "@/lib/content/navigation";
+import { SocialLabelledLinks } from "./social-links";
+import { logo } from "@/lib/config/brand-assets";
 import { siteConfig } from "@/lib/config/site";
 
+/**
+ * Deliberately minimal: identity, the three profiles, and the emergency line.
+ * No navigation mirror, no consultancy messaging - both are on the page above.
+ */
 export function SiteFooter() {
-  const { doctor, social } = siteConfig;
-
-  const socialLinks = [
-    { label: "Instagram", href: social.instagram },
-    { label: "LinkedIn", href: social.linkedin },
-    { label: "YouTube", href: social.youtube },
-  ].filter((s) => s.href);
+  const { doctor, brand } = siteConfig;
 
   return (
-    <footer className="border-t border-rule bg-navy pb-12 pt-12 text-white sm:pb-16 sm:pt-16">
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-24">
-          <div>
-            <BrandMark tone="light" size="lg" />
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Gastroenterology, hepatology and pancreatic medicine.
-            </p>
+    <footer className="border-t border-white/10 bg-navy px-5 pb-16 pt-12 text-white sm:px-8 sm:pb-12">
+      <div className="mx-auto max-w-[1240px]">
+        <Link href="/" className="inline-block bg-warm-white px-4 py-3">
+          <Image
+            src={logo.stacked.src}
+            alt={brand.practiceName}
+            width={logo.stacked.width}
+            height={logo.stacked.height}
+            sizes="180px"
+            className="h-auto w-[140px]"
+          />
+        </Link>
 
-            {/* Only configured (non-empty) profiles are rendered. These are
-                the site's only outward channels. */}
-            {socialLinks.length > 0 && (
-              <nav aria-label="Social profiles" className="mt-6">
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {socialLinks.map((s) => (
-                    <li key={s.label}>
-                      <a
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-11 items-center text-sm text-white/70 underline underline-offset-4 transition-colors hover:text-white"
-                      >
-                        {s.label}
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            )}
-          </div>
+        <p className="mt-5 font-[family-name:var(--font-display)] text-xl text-white">
+          {doctor.name}
+        </p>
+        <p className="mt-1.5 text-[0.9375rem] text-white/65">
+          Gastroenterology {brand.deviceSeparator} Hepatology{" "}
+          {brand.deviceSeparator} Pancreatic Medicine
+        </p>
 
-          <nav aria-label="Footer">
-            <h2 className="label-eyebrow text-white/45">Explore</h2>
-            <ul className="mt-5 space-y-2.5">
-              {footerNav.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <SocialLabelledLinks className="-ml-3 mt-5" tone="light" withWhatsApp />
 
-        </div>
+        <p className="mt-10 max-w-2xl border-t border-white/10 pt-6 text-[0.8125rem] leading-relaxed text-white/50">
+          This website is a professional profile and does not provide medical
+          advice. In an emergency, contact your local emergency services.
+        </p>
 
-        <div className="mt-10 border-t border-white/12 pt-8 sm:mt-14">
-          <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} {doctor.name}
-          </p>
-        </div>
+        <p className="mt-5 text-xs text-white/40">
+          © {new Date().getFullYear()} {doctor.name}
+        </p>
       </div>
     </footer>
   );

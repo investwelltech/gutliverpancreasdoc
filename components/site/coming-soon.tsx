@@ -3,13 +3,11 @@ import { services } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Consulting is not open yet. Every place that would otherwise carry a booking
- * action carries one of these instead, and both read their copy from
- * `services` in lib/config/site.ts — so when consulting opens, the wording is
- * changed in one file.
+ * Consultancy is not open yet. Both of these read their copy from `services`
+ * in lib/config/site.ts, so when it opens the wording changes in one file.
  */
 
-/** Compact inline marker — sits beside a heading or inside a card. */
+/** Quiet inline marker - used beside the hero action. */
 export function ComingSoonBadge({
   tone = "dark",
   className,
@@ -20,14 +18,12 @@ export function ComingSoonBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 border px-2.5 py-1 text-[0.625rem] font-medium uppercase tracking-[0.14em]",
-        tone === "dark"
-          ? "border-teal/35 bg-teal/[0.06] text-teal"
-          : "border-white/30 text-white/75",
+        "inline-flex items-center gap-1.5 text-[0.6875rem] font-medium uppercase tracking-[0.14em]",
+        tone === "dark" ? "text-teal" : "text-white/70",
         className
       )}
     >
-      <Clock size={11} strokeWidth={2} aria-hidden="true" />
+      <Clock size={12} strokeWidth={2} aria-hidden="true" />
       {services.statusLabel}
     </span>
   );

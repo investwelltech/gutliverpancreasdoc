@@ -29,8 +29,11 @@ export const specialistAreas = [
  */
 
 /**
- * Editable profile fields shown in "Meet your specialist".
- * Bracketed values render with a visibly pending treatment.
+ * The short fact list shown under "About Dr. Pratik Agrawal".
+ *
+ * Career history and academic engagement are deliberately NOT here: they have
+ * their own sections further down the page, and the brief asks that nothing be
+ * repeated between them.
  */
 export const profileFields = [
   {
@@ -46,16 +49,6 @@ export const profileFields = [
     label: "Clinical interests",
     value:
       "Advanced endoscopy, hepatology and metabolic liver disease, alongside preventive digestive health.",
-  },
-  {
-    label: "Professional experience",
-    value:
-      "In clinical practice since 2020, including a year as a Consultant Physician in general medicine before beginning gastroenterology training.",
-  },
-  {
-    label: "Academic activity",
-    value:
-      "Case report presented at LTSICON 2025; ongoing interest in collaborative research.",
   },
   /*
    * The Memberships and Medical registration rows are held back for now at the
