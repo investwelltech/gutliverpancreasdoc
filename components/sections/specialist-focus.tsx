@@ -22,10 +22,10 @@ export function SpecialistFocus() {
       id="specialist-focus"
       className="border-t border-rule bg-warm-white"
     >
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20 lg:py-24">
         <p className="label-eyebrow text-teal">Our specialist focus</p>
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
+        <div className="mt-6 grid gap-8 sm:mt-10 sm:gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
           {/* Supplied medical animation. Under reduced motion the SVG diagram
               is shown instead and the video is never downloaded. */}
           <div className="mx-auto w-full max-w-[460px] lg:max-w-none">
@@ -47,18 +47,18 @@ export function SpecialistFocus() {
             <h2 className="type-h2 max-w-xl text-navy">
               Three connected systems, assessed together
             </h2>
-            <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-slate">
+            <p className="mt-4 hidden max-w-xl text-[0.9375rem] leading-relaxed text-slate sm:block">
               Gut, liver and pancreatic conditions frequently overlap. Reviewing
               them as one system — rather than in isolation — is what a focused
               specialist opinion offers.
             </p>
 
-            <div className="mt-10 divide-y divide-rule border-t border-rule">
+            <div className="mt-6 divide-y divide-rule border-t border-rule sm:mt-10">
               {expertiseAreas.map((area) => (
                 <Link
                   key={area.id}
                   href={area.href}
-                  className="group flex items-baseline gap-5 py-6 transition-colors hover:bg-white/70 sm:gap-7"
+                  className="group flex items-baseline gap-4 py-4 transition-colors hover:bg-white/70 sm:gap-7 sm:py-6"
                 >
                   <span
                     className={cn(
@@ -74,7 +74,7 @@ export function SpecialistFocus() {
                     <span className="block font-[family-name:var(--font-display)] text-xl text-navy sm:text-[1.375rem]">
                       {area.label}
                     </span>
-                    <span className="mt-1.5 block text-sm leading-relaxed text-slate">
+                    <span className="mt-1.5 hidden text-sm leading-relaxed text-slate sm:block">
                       {area.focusLine}
                     </span>
                   </span>

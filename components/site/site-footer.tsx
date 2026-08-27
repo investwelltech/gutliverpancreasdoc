@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { BrandMark } from "./brand-mark";
-import { WhatsAppCta, EmailCta, BookCta } from "./cta";
+import { WhatsAppCta, EmailCta } from "./cta";
+import { ComingSoonBadge } from "./coming-soon";
 import { footerNav, legalNav } from "@/lib/content/navigation";
 import { siteConfig } from "@/lib/config/site";
 
 export function SiteFooter() {
-  const { doctor, social, positioning } = siteConfig;
+  const { doctor, social, services } = siteConfig;
 
   const socialLinks = [
     { label: "Instagram", href: social.instagram },
@@ -14,15 +15,16 @@ export function SiteFooter() {
   ].filter((s) => s.href);
 
   return (
-    <footer className="border-t border-rule bg-navy pb-28 pt-16 text-white lg:pb-16">
+    <footer className="border-t border-rule bg-navy pb-28 pt-12 text-white sm:pt-16 lg:pb-16">
       <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <BrandMark tone="light" size="lg" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              {positioning.serviceDescriptor} for digestive, liver and
-              pancreatic health — consultations, second opinions and medical
-              report review.
+              Specialist practice in digestive, liver and pancreatic health.
+            </p>
+            <p className="mt-3 text-sm text-white/50">
+              {services.statusLine}
             </p>
 
             {/*
@@ -58,6 +60,7 @@ export function SiteFooter() {
             )}
           </div>
 
+          <div className="grid grid-cols-2 gap-8 sm:gap-12 lg:contents">
           <nav aria-label="Footer">
             <h2 className="label-eyebrow text-white/45">Explore</h2>
             <ul className="mt-5 space-y-2.5">
@@ -92,21 +95,22 @@ export function SiteFooter() {
               Policy documents are in preparation and are not yet in force.
             </p>
           </nav>
+          </div>
         </div>
 
-        <div className="mt-14 border-t border-white/12 pt-8">
+        <div className="mt-10 border-t border-white/12 pt-8 sm:mt-14">
           <div className="flex flex-wrap items-start justify-between gap-6">
             <p className="max-w-3xl text-xs leading-relaxed text-white/55">
               <strong className="font-semibold text-white/80">
                 Medical disclaimer.
               </strong>{" "}
-              This website provides general information and access to online
-              specialist consultations. It does not provide emergency medical
-              advice and is not a substitute for care from your own doctor. If
-              you have urgent or severe symptoms, contact your local emergency
-              services or attend your nearest emergency department.
+              This website is a professional profile and provides general
+              information only. It does not provide medical advice, does not
+              create a doctor–patient relationship and is not a substitute for
+              care from your own doctor. If you have urgent or severe symptoms,
+              contact your local emergency services.
             </p>
-            <BookCta variant="onNavy" size="sm" />
+            <ComingSoonBadge tone="light" />
           </div>
           <p className="mt-6 text-xs text-white/40">
             © {new Date().getFullYear()} {doctor.name}. Medical registration

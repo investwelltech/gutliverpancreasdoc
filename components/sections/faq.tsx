@@ -10,10 +10,10 @@ import { faqItems } from "@/lib/content/faq";
 export function Faq() {
   return (
     <Section id="faq" tone="white">
-      <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+      <div className="grid gap-6 sm:gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <SectionHeading
           eyebrow="Questions"
-          title="Before you book"
+          title="Common questions"
           lead="If your question isn't answered here, send it over on WhatsApp and it will be answered directly."
         />
 

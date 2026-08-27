@@ -1,51 +1,64 @@
 import { Section, SectionHeading } from "@/components/site/section";
-import { BookCta } from "@/components/site/cta";
+import { ComingSoonNotice } from "@/components/site/coming-soon";
+import { WhatsAppCta } from "@/components/site/cta";
 import { consultationTypes } from "@/lib/content/consultations";
 import { pricing } from "@/lib/config/site";
 
+/**
+ * The consultation types are described here as an outline of the practice —
+ * NOT as something bookable. There is no booking flow on this site, so the
+ * section closes with the "coming soon" notice and an enquiry route instead.
+ *
+ * On mobile only the name and the "suitable for" line are shown; the longer
+ * `detail` paragraph appears from `sm` up.
+ */
 export function ConsultationTypes() {
   return (
     <Section id="consultations" tone="clinical">
       <SectionHeading
-        eyebrow="Consultation types"
-        title="Choose the consultation that matches your situation"
+        eyebrow="Consultation services"
+        title="The consultations being prepared"
         lead="Each option is built around a different starting point. If you are unsure which applies, the initial consultation is the right place to begin."
       />
 
-      {/* A decision aid, not four price cards */}
-      <div className="mt-14 grid gap-px bg-navy/12 sm:grid-cols-2">
+      <div className="mt-8 grid gap-px bg-navy/12 sm:mt-14 sm:grid-cols-2">
         {consultationTypes.map((c) => (
           <article
             key={c.id}
-            className="flex flex-col bg-blue-light p-7 lg:p-9"
+            className="flex flex-col bg-blue-light p-5 sm:p-7 lg:p-9"
           >
-            <h3 className="font-[family-name:var(--font-display)] text-[1.375rem] leading-snug text-navy">
+            <h3 className="font-[family-name:var(--font-display)] text-lg leading-snug text-navy sm:text-[1.375rem]">
               {c.name}
             </h3>
 
-            <p className="mt-4 border-l-2 border-teal pl-4 text-sm leading-relaxed text-navy">
+            <p className="mt-3 border-l-2 border-teal pl-4 text-sm leading-relaxed text-navy sm:mt-4">
               {c.suitableFor}
             </p>
 
-            <p className="mt-4 text-sm leading-relaxed text-slate">
+            <p className="mt-4 hidden text-sm leading-relaxed text-slate sm:block">
               {c.detail}
             </p>
 
-            <div className="mt-auto pt-7">
-              {pricing.displayPricing && c.price ? (
+            {/* The fee note is stated once below the grid, not on every card. */}
+            {pricing.displayPricing && c.price && (
+              <div className="mt-auto pt-5 sm:pt-7">
                 <p className="font-[family-name:var(--font-display)] text-lg text-navy">
                   {c.price}
                 </p>
-              ) : (
-                <p className="text-xs italic text-slate">{pricing.feeNote}</p>
-              )}
-            </div>
+              </div>
+            )}
           </article>
         ))}
       </div>
 
-      <div className="mt-10">
-        <BookCta variant="primary" size="lg" />
+      <p className="mt-5 text-xs italic text-slate">{pricing.feeNote}</p>
+
+      <ComingSoonNotice className="mt-6 sm:mt-8" />
+
+      <div className="mt-6">
+        <WhatsAppCta variant="primary" size="lg" withIcon>
+          Register Your Interest
+        </WhatsAppCta>
       </div>
     </Section>
   );

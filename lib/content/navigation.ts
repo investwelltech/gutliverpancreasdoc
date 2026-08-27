@@ -32,10 +32,6 @@ export const primaryNav: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const utilityNav: NavLink[] = [
-  { label: "Upload Reports", href: "/upload-reports" },
-];
-
 /** Flat list used by the footer. */
 export const footerNav: NavLink[] = [
   { label: "Home", href: "/" },

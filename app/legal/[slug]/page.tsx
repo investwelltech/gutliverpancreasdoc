@@ -30,7 +30,7 @@ const legalPages = {
   },
   "patient-consent": {
     title: "Patient Consent",
-    lead: "The consent you will be asked to give before any medical document is uploaded or retained. This document is in preparation.",
+    lead: "The consent you will be asked to give before any medical document is shared or retained. This document is in preparation.",
   },
 } as const;
 

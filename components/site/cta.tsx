@@ -2,7 +2,7 @@ import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { whatsappHref, bookingHref, emailHref } from "@/lib/config/site";
+import { whatsappHref, emailHref } from "@/lib/config/site";
 
 const ctaVariants = cva(
   // min-h keeps every control at a comfortable touch target on mobile.
@@ -69,10 +69,18 @@ export function Cta({
   );
 }
 
-export function BookCta(props: Omit<CtaProps, "href" | "children">) {
+/**
+ * There is no booking engine on this site — see `services` in lib/config/site.
+ * Wherever a "Book" action used to sit, patients are pointed at the enquiry
+ * route instead. Keep it that way until consulting genuinely opens.
+ */
+export function EnquireCta({
+  children = "Make an Enquiry",
+  ...props
+}: Omit<CtaProps, "href" | "children"> & { children?: React.ReactNode }) {
   return (
-    <Cta href={bookingHref()} {...props}>
-      Book Consultation
+    <Cta href="/contact" {...props}>
+      {children}
     </Cta>
   );
 }

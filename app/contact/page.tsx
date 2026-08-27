@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, CalendarDays } from "lucide-react";
-import { BookCta, WhatsAppCta, EmailCta } from "@/components/site/cta";
+import { MessageCircle, Mail } from "lucide-react";
+import { WhatsAppCta, EmailCta } from "@/components/site/cta";
+import { ComingSoonNotice } from "@/components/site/coming-soon";
 import { Placeholder } from "@/components/site/placeholder";
 import { siteConfig } from "@/lib/config/site";
 
@@ -29,37 +30,32 @@ const channels = [
       "For longer enquiries, or if you would prefer to write rather than message.",
     action: <EmailCta variant="outline" size="md" />,
   },
-  {
-    icon: CalendarDays,
-    title: "Book a consultation",
-    detail:
-      "Ready to go ahead? Start the booking process and choose the consultation that fits.",
-    action: <BookCta variant="outline" size="md" />,
-  },
 ];
 
 export default function Page() {
   return (
     <>
       <header className="border-b border-rule bg-blue-light">
-        <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20 lg:py-24">
           <p className="label-eyebrow text-teal">Contact</p>
           <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[2rem] leading-[1.12] text-navy sm:text-[2.5rem] lg:text-[3rem]">
             Get in touch
           </h1>
-          <p className="type-body mt-5 max-w-2xl text-slate">
+          <p className="type-body mt-4 hidden max-w-2xl text-slate sm:mt-5 sm:block">
             For questions about whether an online consultation is right for your
             situation, send a message and it will be answered directly.
           </p>
         </div>
       </header>
 
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20">
-        <div className="grid gap-px border border-rule bg-rule sm:grid-cols-3">
+      <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20">
+        <ComingSoonNotice className="mb-8 sm:mb-10" />
+
+        <div className="grid gap-px border border-rule bg-rule sm:grid-cols-2">
           {channels.map((c) => (
             <div
               key={c.title}
-              className="flex flex-col bg-white p-7 lg:p-8"
+              className="flex flex-col bg-white p-6 sm:p-7 lg:p-8"
             >
               <c.icon
                 size={20}
@@ -67,18 +63,18 @@ export default function Page() {
                 aria-hidden="true"
                 className="text-teal"
               />
-              <h2 className="mt-5 font-[family-name:var(--font-display)] text-xl text-navy">
+              <h2 className="mt-4 font-[family-name:var(--font-display)] text-xl text-navy sm:mt-5">
                 {c.title}
               </h2>
               <p className="mt-2.5 text-sm leading-relaxed text-slate">
                 {c.detail}
               </p>
-              <div className="mt-auto pt-7">{c.action}</div>
+              <div className="mt-auto pt-6 sm:pt-7">{c.action}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 grid gap-8 border-t border-rule pt-10 sm:grid-cols-2">
+        <div className="mt-10 grid gap-7 border-t border-rule pt-8 sm:mt-12 sm:gap-8 sm:pt-10 sm:grid-cols-2">
           <div>
             <h2 className="label-eyebrow text-slate">Consultation address</h2>
             <p className="mt-3 text-sm text-slate">

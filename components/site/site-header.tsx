@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { BrandMark } from "./brand-mark";
-import { BookCta, Cta } from "./cta";
-import { primaryNav, utilityNav } from "@/lib/content/navigation";
+import { WhatsAppCta } from "./cta";
+import { primaryNav } from "@/lib/content/navigation";
+import { ComingSoonNotice } from "./coming-soon";
 import {
   SocialIconLinks,
   SocialLabelledLinks,
@@ -142,18 +143,9 @@ export function SiteHeader() {
           <div className="hidden items-center gap-3 lg:flex">
             <SocialIconLinks />
             <span aria-hidden="true" className="h-5 w-px bg-rule" />
-            {utilityNav.map((link) => (
-              <Cta
-                key={link.href}
-                href={link.href}
-                variant="outline"
-                size="sm"
-                className="hidden xl:inline-flex"
-              >
-                {link.label}
-              </Cta>
-            ))}
-            <BookCta variant="primary" size="sm" />
+            <WhatsAppCta variant="primary" size="sm" withIcon>
+              Enquire
+            </WhatsAppCta>
           </div>
 
           <div className="flex items-center gap-0.5 lg:hidden">
@@ -223,18 +215,10 @@ export function SiteHeader() {
           </nav>
 
           <div className="mt-6 flex flex-col gap-3">
-            {utilityNav.map((link) => (
-              <Cta
-                key={link.href}
-                href={link.href}
-                variant="outline"
-                size="md"
-                block
-              >
-                {link.label}
-              </Cta>
-            ))}
-            <BookCta variant="primary" size="md" block />
+            <WhatsAppCta variant="primary" size="md" block withIcon>
+              Enquire on WhatsApp
+            </WhatsAppCta>
+            <ComingSoonNotice detail={false} />
           </div>
 
           <div className="mt-8 border-t border-rule pt-5">

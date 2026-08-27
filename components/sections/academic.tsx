@@ -17,20 +17,20 @@ export function Academic() {
 
   return (
     <section id="academic" className="bg-blue-light">
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20 lg:py-24">
         <p className="label-eyebrow text-teal">
           Training, practice &amp; academic engagement
         </p>
-        <h2 className="type-h2 mt-4 max-w-2xl text-navy">
+        <h2 className="type-h2 mt-3 max-w-2xl text-navy sm:mt-4">
           A specialist career built on general medicine
         </h2>
-        <p className="type-body mt-5 max-w-2xl text-slate">
+        <p className="type-body mt-5 hidden max-w-2xl text-slate sm:block">
           Gastroenterology training follows several years of internal medicine
           practice — which is what makes it possible to read a digestive or
           liver problem in the context of the whole patient.
         </p>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:gap-16">
+        <div className="mt-8 grid gap-10 sm:mt-12 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:gap-16">
           <div>
             {/* Experience */}
             <h3 className="label-eyebrow text-slate">Clinical experience</h3>
@@ -38,19 +38,19 @@ export function Academic() {
               {experience.map((e) => (
                 <li
                   key={`${e.role}-${e.period}`}
-                  className="grid gap-1 border-b border-rule py-5 sm:grid-cols-[150px_1fr] sm:gap-6"
+                  className="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-6 sm:py-5"
                 >
                   <span className="pt-0.5 font-[family-name:var(--font-sans)] text-xs tabular-nums text-slate">
                     {e.period}
                   </span>
                   <span>
-                    <span className="block font-[family-name:var(--font-display)] text-lg leading-snug text-navy">
+                    <span className="block font-[family-name:var(--font-display)] text-base leading-snug text-navy sm:text-lg">
                       {e.role}
                     </span>
                     <span className="mt-0.5 block text-sm text-slate">
                       {e.org} · {e.location}
                     </span>
-                    <span className="mt-1.5 block text-sm leading-relaxed text-slate">
+                    <span className="mt-1.5 hidden text-sm leading-relaxed text-slate sm:block">
                       {e.detail}
                     </span>
                   </span>
@@ -59,12 +59,12 @@ export function Academic() {
             </ol>
 
             {/* Education */}
-            <h3 className="label-eyebrow mt-12 text-slate">Education</h3>
+            <h3 className="label-eyebrow mt-10 text-slate sm:mt-12">Education</h3>
             <ol className="mt-5 border-t border-rule">
               {education.map((ed) => (
                 <li
                   key={ed.award}
-                  className="grid gap-1 border-b border-rule py-5 sm:grid-cols-[150px_1fr] sm:gap-6"
+                  className="grid gap-1 border-b border-rule py-4 sm:grid-cols-[150px_1fr] sm:gap-6 sm:py-5"
                 >
                   <span className="pt-0.5 text-xs tabular-nums text-slate">
                     {ed.period}
@@ -98,7 +98,7 @@ export function Academic() {
                 sizes="(max-width: 640px) 92vw, (max-width: 1024px) 80vw, 38vw"
                 className="h-auto w-full object-cover"
               />
-              <figcaption className="mt-3 text-xs leading-relaxed text-slate">
+              <figcaption className="mt-3 hidden text-xs leading-relaxed text-slate sm:block">
                 Case report presentation, LTSICON 2025 — 8th Annual Conference
                 of the Liver Transplantation Society of India, New Delhi.
               </figcaption>

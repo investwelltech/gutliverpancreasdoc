@@ -1,4 +1,5 @@
-import { BookCta, WhatsAppCta } from "./cta";
+import { Cta, WhatsAppCta } from "./cta";
+import { ComingSoonNotice } from "./coming-soon";
 import { brand } from "@/lib/config/site";
 
 /**
@@ -22,18 +23,18 @@ export function PageShell({
   return (
     <>
       <header className="border-b border-rule bg-blue-light">
-        <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20 lg:py-24">
           <p className="label-eyebrow text-teal">{eyebrow}</p>
           <h1 className="mt-4 max-w-3xl text-[2rem] leading-[1.12] text-navy sm:text-[2.5rem] lg:text-[3rem]">
             {title}
           </h1>
-          <p className="mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-slate">
+          <p className="mt-4 hidden max-w-2xl text-[1.0625rem] leading-relaxed text-slate sm:mt-5 sm:block">
             {lead}
           </p>
         </div>
       </header>
 
-      <div className="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20">
         {children}
 
         {phaseNote && (
@@ -47,9 +48,15 @@ export function PageShell({
           </div>
         )}
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-rule pt-10 sm:flex-row">
-          <BookCta variant="primary" size="lg" />
-          <WhatsAppCta variant="outline" size="lg" />
+        <ComingSoonNotice className="mt-12" />
+
+        <div className="mt-8 flex flex-col gap-3 border-t border-rule pt-8 sm:flex-row">
+          <WhatsAppCta variant="primary" size="lg" withIcon>
+            Enquire on WhatsApp
+          </WhatsAppCta>
+          <Cta href="/contact" variant="outline" size="lg">
+            Contact
+          </Cta>
         </div>
 
         <p className="mt-8 label-eyebrow text-slate">

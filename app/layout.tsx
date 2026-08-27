@@ -31,14 +31,13 @@ export const metadata: Metadata = {
     template: `%s | ${doctor.name}`,
   },
   description:
-    "Online specialist consultation for gut, liver and pancreatic health. Initial consultations, second opinions, follow-up appointments and medical report review with a gastroenterology and hepatology specialist.",
+    "Professional profile of a gastroenterology, hepatology and pancreatic medicine specialist in New Delhi. Online consultation services are in preparation.",
   keywords: [
     "gastroenterologist",
     "gut specialist",
     "liver specialist",
     "hepatologist",
     "pancreas specialist",
-    "online gastroenterology consultation",
     "gastroenterology second opinion",
   ],
   authors: [{ name: doctor.name }],
@@ -46,14 +45,14 @@ export const metadata: Metadata = {
     type: "website",
     title: `${brand.tagline} | ${doctor.name}`,
     description:
-      "Expert online consultation, second opinions and personalised specialist guidance for digestive, liver and pancreatic concerns.",
+      "Specialist profile in digestive, liver and pancreatic medicine. Consulting services coming soon.",
     siteName: doctor.name,
   },
   twitter: {
     card: "summary_large_image",
     title: `${brand.tagline} | ${doctor.name}`,
     description:
-      "Expert online consultation, second opinions and personalised specialist guidance for digestive, liver and pancreatic concerns.",
+      "Specialist profile in digestive, liver and pancreatic medicine. Consulting services coming soon.",
   },
   robots: {
     // Phase 1 is an unapproved preview — do not index until content is confirmed.

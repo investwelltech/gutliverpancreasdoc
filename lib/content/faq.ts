@@ -1,6 +1,10 @@
 /**
  * FAQ content. Answers deliberately avoid clinical claims, pricing and any
  * statement about medical registration or jurisdiction until confirmed.
+ *
+ * NOTE: consulting is not open yet and this site has no booking or upload
+ * feature, so no answer may describe booking a slot or sending documents
+ * through the website. See `services` in lib/config/site.ts.
  */
 
 export type FaqItem = {
@@ -10,14 +14,14 @@ export type FaqItem = {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What happens during an online consultation?",
+    question: "What will an online consultation involve?",
     answer:
-      "You join a private video appointment at your chosen time. Your history and any reports you have uploaded are reviewed beforehand, so the appointment itself is spent discussing your symptoms, going through your results together and talking through the options available to you.",
+      "Consultations are being prepared and are not open yet. Once they are, an appointment will be a private video consultation spent discussing your symptoms, going through your results together and talking through the options available to you.",
   },
   {
-    question: "Do I need to have reports before booking?",
+    question: "Will I need to have reports first?",
     answer:
-      "No. Reports are helpful where they exist, but they are not required. If you have had recent blood tests or scans, sharing them in advance makes the consultation more useful. If you have not, that can be discussed during the appointment.",
+      "No. Reports are helpful where they exist, but they are not required. Please do not send medical documents through this website — there is no upload facility here, and how reports will be shared securely will be set out before consultations open.",
   },
   {
     question: "Can I get a second opinion if I already have a diagnosis?",
@@ -25,28 +29,28 @@ export const faqItems: FaqItem[] = [
       "Yes. A second opinion is an independent review of your existing diagnosis, investigations and proposed plan. It is intended to support the care you are already receiving, not to replace your treating doctor.",
   },
   {
-    question: "Is an online consultation suitable for my problem?",
+    question: "Will an online consultation suit my problem?",
     answer:
       "Many gut, liver and pancreatic concerns can be discussed effectively online, particularly where the main need is interpretation of results or a specialist opinion. Some situations require a physical examination or in-person procedure, and where that applies it will be explained to you clearly.",
   },
   {
-    question: "How are my medical documents handled?",
+    question: "How will my medical documents be handled?",
     answer:
-      "Documents are treated as confidential medical records. They are stored privately, encrypted, and made available only in connection with your own consultation. You will be asked for explicit consent before anything is uploaded or retained.",
+      "This website does not collect, store or receive medical documents. When consultations open, documents will be treated as confidential medical records and you will be asked for explicit consent before anything is retained.",
   },
   {
     question: "What are the consultation fees?",
     answer:
-      "Fees are confirmed at the time of booking, so that the appropriate consultation type can be selected for your situation first.",
+      "Fees have not been published. They will be set out here before consultations open.",
   },
   {
     question: "Can I use this service from outside the country?",
     answer:
-      "Online consultations can be arranged across time zones. The precise arrangements available to patients consulting from abroad are being confirmed, and will be set out clearly before you book.",
+      "The arrangements available to patients consulting from abroad are still being confirmed, and will be set out clearly before consultations open.",
   },
   {
-    question: "Is this service suitable in an emergency?",
+    question: "Is this suitable in an emergency?",
     answer:
-      "No. This service is not for emergencies. If you have severe abdominal pain, vomiting blood, black stools, or any other symptom that concerns you urgently, contact your local emergency services or attend your nearest emergency department.",
+      "No. This website is not for emergencies. If you have severe abdominal pain, vomiting blood, black stools, or any other symptom that concerns you urgently, contact your local emergency services or attend your nearest emergency department.",
   },
 ];

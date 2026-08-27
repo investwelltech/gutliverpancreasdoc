@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/site/page-shell";
+import { doctor } from "@/lib/config/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +12,7 @@ export default function Page() {
   return (
     <PageShell
       eyebrow="About"
-      title="About Dr. Pratik Agarwal"
+      title={`About ${doctor.name}`}
       lead="A specialist practice focused on the gut, liver and pancreas — three closely connected systems where a considered opinion makes a genuine difference."
     />
   );

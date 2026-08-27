@@ -68,7 +68,7 @@ export const siteConfig = {
     whatsappNumber: "919217560183",
     whatsappUrl: "https://wa.me/919217560183",
     whatsappMessage:
-      "Hello, I would like information about booking a consultation.",
+      "Hello, I would like to enquire about a specialist consultation.",
     /** PRIVATE — mailto target only. Never rendered as visible text. */
     email: "aidarshna@gmail.com",
     /** PRIVATE — tel: target only. Never rendered as visible text. */
@@ -90,41 +90,30 @@ export const siteConfig = {
     youtube: "",
   },
 
-  booking: {
-    /**
-     * CTAs point at the internal /book page rather than straight at Google, so
-     * the appointment grid is wrapped in the India-time notice and the
-     * after-booking WhatsApp step.
-     */
-    internalPath: "/book",
-    externalUrl: "",
-    /** Google Calendar appointment schedule (short link, for "open in Google"). */
-    scheduleUrl: "https://calendar.app.google/iEU8hPMeBJEyYeom7",
-    /**
-     * Resolved long form. `?gv=true` is what makes Google render the embeddable
-     * grid.
-     *
-     * NOTE: Google's appointment scheduler ignores a `ctz` parameter here — it
-     * always renders slots in the VISITOR's timezone and converts from the
-     * clinic's own calendar automatically. Verified in-browser: a UK visitor is
-     * shown "(GMT+01:00) United Kingdom Time". Do not re-add `ctz` and do not
-     * write copy claiming the grid displays IST; it does not.
-     */
-    scheduleEmbedUrl:
-      "https://calendar.google.com/appointments/schedules/AcZssZ3uPPSEw-YktXalG4XCfGkBxPYVo4VHK29r51SH6wB5yAq3mAMwn_pnbNvqesa4fXHwQoHFRYHt?gv=true",
-    /** All published availability is India Standard Time. */
-    timezone: "Asia/Kolkata",
-    timezoneLabel: "India Standard Time (IST)",
-    /** Neutral, no clinical detail — see the WhatsApp rule in lib/content. */
-    confirmMessage:
-      "Hello, I have just booked an online consultation through the website and would like to confirm my appointment.",
+  /**
+   * PHASE 1 IS A PORTFOLIO SITE. There is no booking engine, no appointment
+   * calendar and no report upload — those were removed at the client's request.
+   * Every consultation CTA now resolves to this "coming soon" status plus a
+   * WhatsApp/contact route. Do not re-introduce a scheduler, an embedded
+   * calendar or an upload dropzone without explicit approval.
+   */
+  services: {
+    /** Master switch. Flip to true only when consulting is genuinely live. */
+    available: false,
+    /** Short label used on badges and buttons. */
+    statusLabel: "Coming soon",
+    /** One line shown wherever a booking CTA used to sit. */
+    statusLine: "Consulting services coming soon.",
+    /** Longer explanation for section-level notices. */
+    statusNote:
+      "Online consultations are not open for booking yet. Enquiries are welcome in the meantime — send a message and you will be told as soon as appointments open.",
   },
 
   consultation: {
     /** Pricing is deliberately not published in this phase. */
     displayPricing: false,
     currency: "[Currency to be confirmed]",
-    feeNote: "Consultation fees are confirmed at the time of booking.",
+    feeNote: "Consultation fees will be published when consulting services open.",
     /** Reserved for a later phase. No payment provider is integrated. */
     paymentUrl: null as string | null,
   },
@@ -159,19 +148,8 @@ export function phoneHref(): string {
   return `tel:${siteConfig.contact.phone}`;
 }
 
-export function bookingHref(): string {
-  return siteConfig.booking.externalUrl || siteConfig.booking.internalPath;
-}
-
-/** WhatsApp deep link for the post-booking confirmation step. */
-export function bookingConfirmHref(): string {
-  const { whatsappUrl } = siteConfig.contact;
-  return `${whatsappUrl}?text=${encodeURIComponent(
-    siteConfig.booking.confirmMessage
-  )}`;
-}
 
 /* Convenience re-exports so existing imports stay short. */
-export const { doctor, brand, contact, social, booking, positioning } =
+export const { doctor, brand, contact, social, services, positioning } =
   siteConfig;
 export const pricing = siteConfig.consultation;
