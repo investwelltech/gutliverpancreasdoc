@@ -57,14 +57,12 @@ export const profileFields = [
     value:
       "Case report presented at LTSICON 2025; ongoing interest in collaborative research.",
   },
-  {
-    label: "Memberships",
-    value: "[Professional memberships to be confirmed]",
-  },
-  {
-    label: "Medical registration",
-    value: "[Medical registration number to be confirmed]",
-  },
+  /*
+   * The Memberships and Medical registration rows are held back for now at the
+   * client's request - both were unconfirmed placeholders. The values still sit
+   * in lib/config/site.ts (doctor.memberships, doctor.registration); add the
+   * rows back here once there is a confirmed fact to publish.
+   */
 ];
 
 /** Career timeline, most recent first. */

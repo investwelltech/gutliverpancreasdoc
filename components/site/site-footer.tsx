@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { BrandMark } from "./brand-mark";
-import { ComingSoonBadge } from "./coming-soon";
 import { footerNav } from "@/lib/content/navigation";
 import { siteConfig } from "@/lib/config/site";
 
 export function SiteFooter() {
-  const { doctor, social, services } = siteConfig;
+  const { doctor, social } = siteConfig;
 
   const socialLinks = [
     { label: "Instagram", href: social.instagram },
@@ -21,9 +20,6 @@ export function SiteFooter() {
             <BrandMark tone="light" size="lg" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
               Gastroenterology, hepatology and pancreatic medicine.
-            </p>
-            <p className="mt-3 text-sm text-white/50">
-              {services.statusLine}
             </p>
 
             {/* Only configured (non-empty) profiles are rendered. These are
@@ -68,12 +64,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 border-t border-white/12 pt-8 sm:mt-14">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} {doctor.name}
-            </p>
-            <ComingSoonBadge tone="light" />
-          </div>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} {doctor.name}
+          </p>
         </div>
       </div>
     </footer>
