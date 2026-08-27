@@ -1,35 +1,14 @@
-import { Clock } from "lucide-react";
 import { services } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Consultancy is not open yet. Both of these read their copy from `services`
- * in lib/config/site.ts, so when it opens the wording changes in one file.
+ * Consultancy is not open yet. This notice reads its copy from `services` in
+ * lib/config/site.ts, so when it opens the wording changes in one file.
+ *
+ * A compact badge variant lived here too. It has been removed from the hero
+ * and the footer in turn and now has no callers: the status is stated once, in
+ * the consultancy section, rather than repeated as page furniture.
  */
-
-/** Quiet inline marker - used beside the hero action. */
-export function ComingSoonBadge({
-  tone = "dark",
-  className,
-}: {
-  tone?: "dark" | "light";
-  className?: string;
-}) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1.5 text-[0.6875rem] font-medium uppercase tracking-[0.14em]",
-        tone === "dark" ? "text-teal" : "text-white/70",
-        className
-      )}
-    >
-      <Clock size={12} strokeWidth={2} aria-hidden="true" />
-      {services.statusLabel}
-    </span>
-  );
-}
-
-/** Section-level notice: the status line and nothing else. */
 export function ComingSoonNotice({
   tone = "dark",
   className,

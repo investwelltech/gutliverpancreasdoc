@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { WhatsAppCta } from "@/components/site/cta";
-import { ComingSoonBadge } from "@/components/site/coming-soon";
 import { VideoLoop } from "@/components/site/video-loop";
 import { OrganSystem } from "@/components/visuals/organ-system";
 import { motion } from "@/lib/config/brand-assets";
@@ -9,8 +8,9 @@ import { siteConfig } from "@/lib/config/site";
 
 /**
  * Mobile-first hero. The order on a phone is the order in the brief:
- * portrait, medical animation, field, name, headline, one short line, one
- * action, then the quiet consultancy status.
+ * portrait, medical animation, field, name, headline, one short line and one
+ * action. The consultancy status is stated once, in its own section further
+ * down - not here.
  *
  * The Gut/Liver/Pancreas animation lives here rather than further down the
  * page so the medical visual is on screen early. Under reduced motion the SVG
@@ -74,9 +74,8 @@ export function Hero() {
             {doctor.shortTitle}, Max Super Speciality Hospital, Saket.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-4">
+          <div className="mt-7">
             <WhatsAppCta variant="primary" size="lg" />
-            <ComingSoonBadge />
           </div>
         </div>
       </div>
