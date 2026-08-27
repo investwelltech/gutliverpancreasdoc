@@ -5,19 +5,24 @@
  */
 
 export const doctorImages = {
+  /**
+   * Opening hero: the cream/white suit with the gutliverpancreasdoc lapel pin
+   * and pocket mark, because the brand mark reads clearly at hero size.
+   */
   hero: {
-    src: "/images/doctor/dr-pratik-hero.jpg",
-    width: 1120,
-    height: 1500,
-    alt: "Dr. Pratik Agrawal in a white clinical coat at the clinic.",
-    source: "pratik1.jpeg — resized and optimised, no other alteration.",
-  },
-  portrait: {
     src: "/images/doctor/dr-pratik-portrait.jpg",
     width: 1045,
     height: 1400,
-    alt: "Portrait of Dr. Pratik Agrawal wearing a gutliverpancreasdoc branded jacket.",
+    alt: "Dr. Pratik Agrawal in a cream suit with a gutliverpancreasdoc lapel pin.",
     source: "pratik4.jpeg — resized and optimised, no other alteration.",
+  },
+  /** "Meet your specialist": the navy suit, photographed in the consulting room. */
+  portrait: {
+    src: "/images/doctor/dr-pratik-hero.jpg",
+    width: 1120,
+    height: 1500,
+    alt: "Dr. Pratik Agrawal in a navy suit in the consulting room.",
+    source: "pratik1.jpeg — resized and optimised, no other alteration.",
   },
   conference: {
     src: "/images/doctor/dr-pratik-conference.jpg",

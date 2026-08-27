@@ -27,7 +27,6 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: "Consultations", href: "/consultations" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -39,9 +38,7 @@ export const footerNav: NavLink[] = [
   { label: "Gut", href: "/gut" },
   { label: "Liver", href: "/liver" },
   { label: "Pancreas", href: "/pancreas" },
-  { label: "Consultations", href: "/consultations" },
   { label: "Resources", href: "/resources" },
-  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 

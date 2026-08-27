@@ -206,12 +206,6 @@ export function SiteHeader() {
                 </Link>
               )
             )}
-            <Link
-              href="/faq"
-              className="border-b border-rule py-4 font-[family-name:var(--font-display)] text-xl text-navy"
-            >
-              FAQ
-            </Link>
           </nav>
 
           <div className="mt-6 flex flex-col gap-3">

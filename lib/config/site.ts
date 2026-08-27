@@ -63,16 +63,22 @@ export const siteConfig = {
   contact: {
     /**
      * PRIVATE — used only to build href values. Never rendered as visible text.
-     * Digits only, full international format.
+     * Digits only, full international format. Confirmed by the client:
+     * +91 88881 68641.
      */
-    whatsappNumber: "919217560183",
-    whatsappUrl: "https://wa.me/919217560183",
+    whatsappNumber: "918888168641",
     whatsappMessage:
       "Hello, I would like to enquire about a specialist consultation.",
-    /** PRIVATE — mailto target only. Never rendered as visible text. */
-    email: "aidarshna@gmail.com",
+    /**
+     * No email address is hard-coded. The previous placeholder address was
+     * removed at the client's request — a personal inbox must not ship in the
+     * frontend. Set a real clinic address here and every email button
+     * reappears on its own; while it is a bracketed placeholder, `emailHref()`
+     * returns null and <EmailCta /> renders nothing.
+     */
+    email: "[Clinic email address to be confirmed]",
     /** PRIVATE — tel: target only. Never rendered as visible text. */
-    phone: "+919217560183",
+    phone: "+918888168641",
     /** Visible copy may use this instead of a street address. */
     addressLine: "[Consultation address to be confirmed]",
     /** Set true only when the client approves showing raw details publicly. */
@@ -136,12 +142,23 @@ export const siteConfig = {
 /* ------------------------------------------------------------------ */
 
 export function whatsappHref(): string {
-  const { whatsappUrl, whatsappMessage } = siteConfig.contact;
-  return `${whatsappUrl}?text=${encodeURIComponent(whatsappMessage)}`;
+  const { whatsappNumber, whatsappMessage } = siteConfig.contact;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
 }
 
-export function emailHref(): string {
-  return `mailto:${siteConfig.contact.email}`;
+/** True only once a real clinic address has replaced the placeholder. */
+export function hasEmail(): boolean {
+  return !isPlaceholder(siteConfig.contact.email);
+}
+
+/**
+ * Returns null while the address is an unconfirmed placeholder, so no button
+ * can ever produce a `mailto:` to something that is not a real clinic inbox.
+ */
+export function emailHref(): string | null {
+  return hasEmail() ? `mailto:${siteConfig.contact.email}` : null;
 }
 
 export function phoneHref(): string {

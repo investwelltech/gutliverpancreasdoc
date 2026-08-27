@@ -3,7 +3,8 @@ import { MessageCircle, Mail } from "lucide-react";
 import { WhatsAppCta, EmailCta } from "@/components/site/cta";
 import { ComingSoonNotice } from "@/components/site/coming-soon";
 import { Placeholder } from "@/components/site/placeholder";
-import { siteConfig } from "@/lib/config/site";
+import { hasEmail, siteConfig } from "@/lib/config/site";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
 /**
  * Contact details are deliberately NOT printed on this page. Every route to the
  * clinic is a labelled action whose href comes from siteConfig.
+ *
+ * The email card only exists once a real clinic address is configured — no
+ * address is hard-coded here, so with the placeholder in place WhatsApp is the
+ * single channel offered.
  */
 const channels = [
   {
@@ -23,13 +28,17 @@ const channels = [
       "The fastest way to ask whether an online consultation is right for your situation.",
     action: <WhatsAppCta variant="primary" size="md" withIcon />,
   },
-  {
-    icon: Mail,
-    title: "Email the clinic",
-    detail:
-      "For longer enquiries, or if you would prefer to write rather than message.",
-    action: <EmailCta variant="outline" size="md" />,
-  },
+  ...(hasEmail()
+    ? [
+        {
+          icon: Mail,
+          title: "Email the clinic",
+          detail:
+            "For longer enquiries, or if you would prefer to write rather than message.",
+          action: <EmailCta variant="outline" size="md" />,
+        },
+      ]
+    : []),
 ];
 
 export default function Page() {
@@ -51,7 +60,12 @@ export default function Page() {
       <div className="mx-auto max-w-[1240px] px-5 py-12 sm:px-8 sm:py-20">
         <ComingSoonNotice className="mb-8 sm:mb-10" />
 
-        <div className="grid gap-px border border-rule bg-rule sm:grid-cols-2">
+        <div
+          className={cn(
+            "grid gap-px border border-rule bg-rule",
+            channels.length > 1 && "sm:grid-cols-2"
+          )}
+        >
           {channels.map((c) => (
             <div
               key={c.title}

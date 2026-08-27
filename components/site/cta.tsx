@@ -107,13 +107,20 @@ export function WhatsAppCta({
   );
 }
 
-/** Email action. Renders a label, never the address. */
+/**
+ * Email action. Renders a label, never the address — and renders nothing at all
+ * while no clinic address is configured, so the site cannot offer a mailto: to
+ * an unconfirmed inbox. Set `contact.email` in lib/config/site.ts and every
+ * email button reappears on its own.
+ */
 export function EmailCta({
   children = "Email Clinic",
   ...props
 }: Omit<CtaProps, "href" | "children"> & { children?: React.ReactNode }) {
+  const href = emailHref();
+  if (!href) return null;
   return (
-    <Cta href={emailHref()} {...props}>
+    <Cta href={href} {...props}>
       {children}
     </Cta>
   );

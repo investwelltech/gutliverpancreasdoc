@@ -6,7 +6,6 @@ import { Reasons } from "@/components/sections/reasons";
 import { ConsultationTypes } from "@/components/sections/consultation-types";
 import { Academic } from "@/components/sections/academic";
 import { Resources } from "@/components/sections/resources";
-import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 
 /**
@@ -23,7 +22,6 @@ import { FinalCta } from "@/components/sections/final-cta";
  *   consults    clinical blue   ← carries the "coming soon" notice
  *   academic    clinical blue
  *   resources   warm white
- *   faq         white
  *   final CTA   navy photograph
  */
 export default function Home() {
@@ -37,7 +35,6 @@ export default function Home() {
       <ConsultationTypes />
       <Academic />
       <Resources />
-      <Faq />
       <FinalCta />
     </>
   );
